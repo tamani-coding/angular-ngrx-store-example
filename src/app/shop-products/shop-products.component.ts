@@ -16,7 +16,7 @@ export class ShopProductsComponent implements OnInit {
   public products(): Product[] {
     return [ {
       name: "Super Robot 2k",
-      description: "With Lase Guns!",
+      description: "With Laser Guns!",
       price: 40.99,
       image: "assets/products/robot.png",
     }, {
