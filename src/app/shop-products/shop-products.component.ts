@@ -1,5 +1,8 @@
-import { Product } from './../entity/product';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { CartEntry } from './../cart-state-store/cart.state';
+import { addProduct } from './../cart-state-store/cart.actions';
+import { Product } from './../entity/product';
 
 @Component({
   selector: 'app-shop-products',
@@ -8,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<CartEntry[]>) { }
 
   ngOnInit(): void {
   }
@@ -33,5 +36,9 @@ export class ShopProductsComponent implements OnInit {
       price: 21.15,
       image: "assets/products/book.png",
     }]
+  }
+
+  public buyProduct(product: Product) {
+    this.store.dispatch(addProduct(product));
   }
 }
