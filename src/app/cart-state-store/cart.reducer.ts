@@ -10,7 +10,7 @@ export const cartReducer = createReducer(
   intialCartEntries,
   on(clearCart, entries => [] ),
   on(addProduct, (entries, product) => {
-    console.log('ADD')
+
     const entriesClone: CartEntry[] = JSON.parse(JSON.stringify(entries));
     if (!entriesClone.some(filter(product.id))) {
       entriesClone.push( { product: product, count: 1} );
@@ -21,7 +21,7 @@ export const cartReducer = createReducer(
     return entriesClone;
   }),
   on(removeProduct, (entries, product) => {
-    console.log('REMOVE')
+
     const entriesClone: CartEntry[] = JSON.parse(JSON.stringify(entries));
     const found = entriesClone.find(filter(product.id));
     if (found) {

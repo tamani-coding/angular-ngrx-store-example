@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { CartEntry} from './cart.state';
+import { CartEntry } from './cart.state';
 
 export const selectCountProducts = createSelector(
   createFeatureSelector('cartEntries'),
@@ -9,3 +9,13 @@ export const selectCountProducts = createSelector(
     return count;
   }
 );
+
+
+export const selectTotalPrice = createSelector(
+  createFeatureSelector('cartEntries'),
+  (state: CartEntry[]) => {
+    var totalPrice = 0;
+    state.forEach(p => totalPrice +=  p.count * p.product.price);
+    return totalPrice;
+  }
+)

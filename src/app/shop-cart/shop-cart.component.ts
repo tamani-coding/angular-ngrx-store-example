@@ -1,4 +1,6 @@
+import { CartEntry } from './../cart-state-store/cart.state';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-shop-cart',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopCartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<CartEntry[]>) { }
 
   ngOnInit(): void {
   }

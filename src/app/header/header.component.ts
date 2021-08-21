@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CartEntry } from './../cart-state-store/cart.state';
-import { selectCountProducts } from './../cart-state-store/cart.selectors';
+import { selectCountProducts, selectTotalPrice } from './../cart-state-store/cart.selectors';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +11,12 @@ import { selectCountProducts } from './../cart-state-store/cart.selectors';
 })
 export class HeaderComponent implements OnInit {
 
-  countProducts$: Observable<number>
+  countProducts$: Observable<number>;
+  totalPrice$: Observable<number>;
 
   constructor(private store: Store<CartEntry[]>) {
     this.countProducts$ = store.select(selectCountProducts);
+    this.totalPrice$ = store.select(selectTotalPrice)
   }
 
   ngOnInit(): void {
