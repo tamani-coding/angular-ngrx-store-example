@@ -1,0 +1,27 @@
+.header-container {
+  height: 70px;
+  background: orange;
+  display: flex;
+  flex-direction: row;
+}
+
+.space {
+  flex-grow: 2
+}
+
+.route {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: larger;
+  font-weight: 900;
+}
+
+.route-link {
+  color: black;
+  text-decoration: none;
+}
+
+.cart-icon {
+  margin-top: 10px;
+  margin-right: 20px;
+}
