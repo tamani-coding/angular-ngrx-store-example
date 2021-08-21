@@ -7,7 +7,7 @@
       <div class="title">{{ product.name }}</div>
       <div class="descritpion">{{ product.description }}</div>
       <div class="space"></div>
-      <div class="price">$ {{ product.price }} <button class="add-cart-button" (click)="buyProduct(product)" > + BUY </button></div>
+      <div class="price">$ {{ product.price | number: '1.2-2' }} <button class="add-cart-button" (click)="buyProduct(product)" > + BUY </button></div>
     </div>
   </div>
 </div>

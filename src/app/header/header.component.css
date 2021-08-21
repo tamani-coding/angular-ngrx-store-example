@@ -21,6 +21,10 @@
   text-decoration: none;
 }
 
+.route-link:hover {
+  color: brown;
+}
+
 .cart-icon {
   margin-top: 10px;
   margin-right: 20px;

@@ -14,10 +14,8 @@ import { clearCart } from '../cart-state-store/cart.actions';
 export class ShopCartComponent implements OnInit {
 
   cartEntries$: Observable<CartEntry[]>
-  countProducts$: Observable<number>
 
   constructor(private store: Store) {
-    this.countProducts$ = store.select(selectCountProducts);
     this.cartEntries$ = store.select(selectCartEntries);
   }
 
