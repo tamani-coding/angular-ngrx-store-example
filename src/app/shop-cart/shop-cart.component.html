@@ -1,1 +1,29 @@
-<p>shop-cart works!</p>
+<div class="cart-entries-container">
+  <div>
+    <button class="clear-button action-button" (click)="clearEntries()">REMOVE ALL</button>
+  </div>
+  <div *ngFor="let entry of ( cartEntries$ | async )" class="cart-entry">
+    <div class="space"></div>
+    <div>
+      <img src="{{ entry.product.image }}">
+    </div>
+    <div class="entry-details">
+      <div class="product-name">
+        {{ entry.product.name }}
+      </div>
+      <div class="count">
+        Count: {{ entry.count }}
+      </div>
+      <div class="detail-button-row">
+        <div class="space"></div>
+        <div>
+          <button class="action-button detail-button" (click)="more(entry)">MORE</button>
+        </div>
+        <div>
+          <button class="action-button detail-button" (click)="less(entry)">LESS</button>
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>
+  </div>
+</div>

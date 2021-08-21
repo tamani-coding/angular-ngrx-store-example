@@ -19,3 +19,8 @@ export const selectTotalPrice = createSelector(
     return totalPrice;
   }
 )
+
+export const selectCartEntries = createSelector(
+  createFeatureSelector('cartEntries'),
+  (state: CartEntry[]) => state
+)

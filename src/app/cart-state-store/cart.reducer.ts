@@ -27,7 +27,7 @@ export const cartReducer = createReducer(
     if (found) {
       found.count--;
       if (found.count <= 0) {
-        entriesClone.splice(entriesClone.indexOf(found))
+        entriesClone.splice(entriesClone.indexOf(found), 1)
       }
     }
 
