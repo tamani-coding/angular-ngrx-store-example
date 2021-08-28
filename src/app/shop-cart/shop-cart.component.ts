@@ -1,7 +1,6 @@
 import { addProduct, removeProduct } from './../cart-state-store/cart.actions';
 import { Observable } from 'rxjs';
-import { selectCartEntries, selectCountProducts } from './../cart-state-store/cart.selectors';
-import { CartEntry } from './../cart-state-store/cart.state';
+import { selectCartEntries, selectCountProducts, ProductGroup } from './../cart-state-store/cart.selectors';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { clearCart } from '../cart-state-store/cart.actions';
@@ -13,7 +12,7 @@ import { clearCart } from '../cart-state-store/cart.actions';
 })
 export class ShopCartComponent implements OnInit {
 
-  cartEntries$: Observable<CartEntry[]>
+  cartEntries$: Observable<IterableIterator<ProductGroup>>
 
   constructor(private store: Store) {
     this.cartEntries$ = store.select(selectCartEntries);
@@ -26,11 +25,11 @@ export class ShopCartComponent implements OnInit {
     this.store.dispatch(clearCart());
   }
 
-  more(entry: CartEntry) {
+  more(entry: ProductGroup) {
     this.store.dispatch(addProduct(entry.product));
   }
 
-  less (entry: CartEntry) {
+  less (entry: ProductGroup) {
     this.store.dispatch(removeProduct(entry.product));
   }
 

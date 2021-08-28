@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CartEntry } from './../cart-state-store/cart.state';
 import { addProduct } from './../cart-state-store/cart.actions';
 import { Product } from './../entity/product';
 
@@ -11,7 +10,7 @@ import { Product } from './../entity/product';
 })
 export class ShopProductsComponent implements OnInit {
 
-  constructor(private store: Store<CartEntry[]>) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
