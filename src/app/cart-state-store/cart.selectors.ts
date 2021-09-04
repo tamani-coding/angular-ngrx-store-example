@@ -23,7 +23,7 @@ export const selectTotalPrice = createSelector(
   }
 )
 
-export const selectCartEntries = createSelector(
+export const selectGroupedCartEntries = createSelector(
   createFeatureSelector('cartEntries'),
   (state: Product[]) => {
     var map: Map<number, ProductGroup> = new Map;
@@ -37,6 +37,6 @@ export const selectCartEntries = createSelector(
     })
 
     const sortedMap = new Map([...map.entries()].sort());
-    return sortedMap.values();
+    return Array.from(sortedMap.values());
   }
 )

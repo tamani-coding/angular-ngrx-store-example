@@ -1,9 +1,9 @@
-import { addProduct, removeProduct } from './../cart-state-store/cart.actions';
-import { Observable } from 'rxjs';
-import { selectCartEntries, selectCountProducts, ProductGroup } from './../cart-state-store/cart.selectors';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { clearCart } from '../cart-state-store/cart.actions';
+import { addProduct, removeProduct } from './../cart-state-store/cart.actions';
+import { ProductGroup, selectGroupedCartEntries } from './../cart-state-store/cart.selectors';
 
 @Component({
   selector: 'app-shop-cart',
@@ -12,10 +12,10 @@ import { clearCart } from '../cart-state-store/cart.actions';
 })
 export class ShopCartComponent implements OnInit {
 
-  cartEntries$: Observable<IterableIterator<ProductGroup>>
+  cartEntries$: Observable<ProductGroup[]>
 
   constructor(private store: Store) {
-    this.cartEntries$ = store.select(selectCartEntries);
+    this.cartEntries$ = store.select(selectGroupedCartEntries);
   }
 
   ngOnInit(): void {
