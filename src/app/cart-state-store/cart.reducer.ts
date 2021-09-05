@@ -1,11 +1,8 @@
 import { Product } from './../entity/product';
 import { createReducer, on, ActionReducer, INIT, UPDATE } from '@ngrx/store';
 import { addProduct, clearCart, removeProduct } from './cart.actions';
-import { intialCartEntries } from './cart.state';
 
-function filter(productId: number) {
-  return (e: Product) => e.id == productId;
-}
+export const intialCartEntries: Product[] = [];
 
 export const cartReducer = createReducer(
   intialCartEntries,
@@ -20,7 +17,7 @@ export const cartReducer = createReducer(
 
   on(removeProduct, (entries, product) => {
     const entriesClone: Product[] = JSON.parse(JSON.stringify(entries));
-    const found = entriesClone.find(filter(product.id));
+    const found = entriesClone.find(e => e.id == product.id);
     if (found) {
         entriesClone.splice(entriesClone.indexOf(found), 1)
     }
