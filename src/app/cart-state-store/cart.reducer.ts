@@ -17,7 +17,9 @@ export const cartReducer = createReducer(
 
   on(removeProduct, (entries, product) => {
     const entriesClone: Product[] = JSON.parse(JSON.stringify(entries));
-    entriesClone.splice(entriesClone.indexOf(product), 1)
+    if (entriesClone.indexOf(product) >= 0) {
+      entriesClone.splice(entriesClone.indexOf(product), 1)
+    }
     return entriesClone;
   })
 )
